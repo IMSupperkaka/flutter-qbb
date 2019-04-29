@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/home.dart';
 import 'package:flutter_app/loan.dart';
-import 'package:flutter_app/login.dart';
+import 'package:flutter_app/webview.dart';
 import 'package:dio/dio.dart';
 import 'utils/net/Http.dart';
 import 'utils/net/Api.dart';
@@ -76,7 +76,7 @@ class MyMainState extends State<MyApp> {
 
   // 路由map
   Map<String, WidgetBuilder> _routes = {
-    '/login': (BuildContext context) => Login()
+
   };
 
 
