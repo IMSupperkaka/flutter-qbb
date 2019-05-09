@@ -19,22 +19,22 @@ class HomeState extends State<Home> {
   final _iconList = [
     {
       'img': 'http://testcdn.wanqiandaikuan.com/Fo2MtGAx6M4Ywi2vSlfLukiEkTaL',
-      'url': 'http://loanapi.wanqiandaikuan.com/mobile/xkb/index/classlist?name=%E9%80%9A%E8%BF%87%E7%8E%87%E9%AB%98',
+      'url': 'http://testloanapi.wanqiandaikuan.com/mobile/xkb/index/classlist?name=%E9%80%9A%E8%BF%87%E7%8E%87%E9%AB%98',
       'text': '高通过率'
     },
     {
       'img': 'http://testcdn.wanqiandaikuan.com/Fu11L8FYhkKgahjPeu8-sxHvi7HF',
-      'url': 'http://loanapi.wanqiandaikuan.com/mobile/xkb/index/classlist?name=%E9%97%AA%E7%94%B5%E6%94%BE%E6%AC%BE',
+      'url': 'http://testloanapi.wanqiandaikuan.com/mobile/xkb/index/classlist?name=%E9%97%AA%E7%94%B5%E6%94%BE%E6%AC%BE',
       'text': '闪电放款'
     },
     {
       'img': 'http://testcdn.wanqiandaikuan.com/FmbEfq70ApfRVY932wD7VI9DkBXg',
-      'url': 'http://loanapi.wanqiandaikuan.com/mobile/xkb/index/classlist?name=%E5%A4%A7%E9%A2%9D%E4%BD%8E%E6%81%AF',
+      'url': 'http://testloanapi.wanqiandaikuan.com/mobile/xkb/index/classlist?name=%E5%A4%A7%E9%A2%9D%E4%BD%8E%E6%81%AF',
       'text': '大额低息'
     },
     {
       'img': 'http://testcdn.wanqiandaikuan.com/FhsIcty_gJl_cFL8XOtBg9t_7kpH',
-      'url': 'http://loanapi.wanqiandaikuan.com/mobile/xkb/index/classlist?name=%E5%88%A9%E7%8E%87%E6%9C%80%E4%BD%8E',
+      'url': 'http://testloanapi.wanqiandaikuan.com/mobile/xkb/index/classlist?name=%E5%88%A9%E7%8E%87%E6%9C%80%E4%BD%8E',
       'text': '信用卡'
     }
   ];
@@ -81,9 +81,18 @@ class HomeState extends State<Home> {
             child: Column(
               children: [
                 this._buildIconList(),
-                Container(
-                  child: Image.network('http://testcdn.wanqiandaikuan.com/FmrIau0sUpQzKkoyHay5A1t2VmIC'),
-                  margin: EdgeInsets.only(top: 10.0),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push<String>(context, new MaterialPageRoute(builder: (BuildContext context){
+                      return new WebView(title: '闪电放款', url: 'http://testloanapi.wanqiandaikuan.com/mobile/xkb/index/classlist?name=%E9%97%AA%E7%94%B5%E6%94%BE%E6%AC%BE');
+                    })).then( (String result){
+                      //处理代码
+                    });
+                  },
+                  child: Container(
+                    child: Image.network('http://testcdn.wanqiandaikuan.com/FmrIau0sUpQzKkoyHay5A1t2VmIC'),
+                    margin: EdgeInsets.only(top: 10.0),
+                  )
                 )
               ],
             ),
@@ -91,8 +100,7 @@ class HomeState extends State<Home> {
             padding: EdgeInsets.all(15.0),
             margin: EdgeInsets.only(bottom: 10.0),
           ),
-          this._buildLoanList(),
-          Image.network('https://file.iviewui.com/asd/asd-i-2.png')
+          this._buildLoanList()
         ]
       ),
       backgroundColor: Color(0xFFF5F5F5)
@@ -116,7 +124,6 @@ class HomeState extends State<Home> {
               Image.network(
                 covariant['img'],
                 width: 50.0,
-                height: 50.0,
                 fit: BoxFit.fill
               ),
               Container(

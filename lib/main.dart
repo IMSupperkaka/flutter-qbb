@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/home.dart';
 import 'package:flutter_app/loan.dart';
-import 'package:flutter_app/webview.dart';
 import 'package:dio/dio.dart';
 import 'utils/net/Http.dart';
 import 'utils/net/Api.dart';
@@ -88,8 +87,12 @@ class MyMainState extends State<MyApp> {
       children: <Widget>[
         Home(),
         Loan(),
-        Text('3'),
-        Text('4')
+        Center(
+          child: Text('敬请期待')
+        ),
+        Center(
+          child: Text('敬请期待')
+        )
       ],
       index: _tabIndex,
     );
@@ -144,6 +147,5 @@ class MyMainState extends State<MyApp> {
   @override
   didChangeDependencies () {
     super.didChangeDependencies();
-    print(123);
   }
 }

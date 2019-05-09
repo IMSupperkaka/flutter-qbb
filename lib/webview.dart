@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappbrowser/flutter_inappbrowser.dart';
 
 class WebView extends StatefulWidget {
-
   final String title;
   final String url;
   WebView({Key key, this.title, this.url}) : super(key: key);
